@@ -21,25 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function sendRequest(prompt) {
-    const apiKey = "sk-proj-xOa7HtjLvWJjnIhXPvCkT3BlbkFJdXICPRtOlchQcINGgRvU"; 
-    const url = "https://api.openai.com/v1/chat/completions"; 
+    const url = "https://your-project-name.vercel.app/api/chatgpt"; // Replace with your Vercel endpoint
 
     const requestOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
         },
-        body: JSON.stringify({
-            prompt: prompt,
-            max_tokens: 100
-        })
+        body: JSON.stringify({ prompt: prompt })
     };
 
     try {
         const response = await fetch(url, requestOptions);
         const data = await response.json();
-        addMessageToChat("ChatGPT", data.choices[0].text.trim());
+        addMessageToChat("ChatGPT", data.reply.trim());
     } catch (error) {
         console.error("Error:", error);
         addMessageToChat("ChatGPT", "Sorry, there was an error processing your request.");
@@ -54,3 +49,4 @@ function addMessageToChat(sender, message) {
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
