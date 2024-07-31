@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function sendRequest(prompt) {
-    const url = "https://your-project-name.vercel.app/api/chatgpt"; // Replace with your Vercel endpoint
+    const url = "https://chat.vercel.app/api/chatgpt"; // Replace with your Vercel endpoint
 
     const requestOptions = {
         method: 'POST',
